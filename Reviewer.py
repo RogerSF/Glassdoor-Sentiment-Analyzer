@@ -56,6 +56,8 @@ def main():
 		print "Positive Prob: " + str(pros_prob)
 		print "Negative Prob: " + str(cons_prob)
 		print "Score: " + str(review.rating)
+		print sentiment
+		print "\n"
 	accuracy = float(correct) / len(test_set)
 	print "Correct: "  + str(correct)
 	print "Test: "  + str(len(test_set))
