@@ -33,36 +33,36 @@ def train_title_pos(title):
 				word3 = title[i+2]
 				if third_word_test(word1, word2, word3):
 					counts = bigramPositive[(word1, word2)]
-					counts[0] += 1
-					bigramPositive[(word1, word2)] = counts
+    				counts[0] += 1
+    				bigramPositive[(word1, word2)] = counts
     				
-					counts = unigramPositive[word1]
-					counts[0] += 1
-					unigramPositive[word1] = counts
+    				counts = unigramPositive[word1]
+    				counts[0] += 1
+    				unigramPositive[word1] = counts
     				
-					bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
-					unigramCounts[word1] = 1 + unigramCounts[word1]
+    				bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
+    				unigramCounts[word1] = 1 + unigramCounts[word1]
     			#pass
 			elif i+1 < len(title):
 				word2 = title[i+1]
 				if second_word_test(word1, word2):
 					counts = bigramPositive[(word1, word2)]
-					counts[0] += 1
-					bigramPositive[(word1, word2)] = counts
+    				counts[0] += 1
+    				bigramPositive[(word1, word2)] = counts
     				
-					counts = unigramPositive[word1]
-					counts[0] += 1
-					unigramPositive[word1] = counts
+    				counts = unigramPositive[word1]
+    				counts[0] += 1
+    				unigramPositive[word1] = counts
     				
-					bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
-					unigramCounts[word1] = 1 + unigramCounts[word1]
+    				bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
+    				unigramCounts[word1] = 1 + unigramCounts[word1]
     			#pass
 			else:
 				counts = unigramPositive[word1]
-				counts[0] += 1
-				unigramPositive[word1] = counts
+    			counts[0] += 1
+    			unigramPositive[word1] = counts
     			
-				unigramCounts[word1] = 1 + unigramCounts[word1]
+    			unigramCounts[word1] = 1 + unigramCounts[word1]
 
 def train_title_neg(title):
 	for i in range(0, len(title)):
@@ -74,36 +74,36 @@ def train_title_neg(title):
 				word3 = title[i+2]
 				if third_word_test(word1, word2, word3):
 					counts = bigramNegative[(word1, word2)]
-					counts[1] += 1
-					bigramNegative[(word1, word2)] = counts
+    				counts[1] += 1
+    				bigramNegative[(word1, word2)] = counts
     				
-					counts = unigramNegative[word1]
-					counts[1] += 1
-					unigramNegative[word1] = counts
+    				counts = unigramNegative[word1]
+    				counts[1] += 1
+    				unigramNegative[word1] = counts
     				
-					bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
-					unigramCounts[word1] = 1 + unigramCounts[word1]
+    				bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
+    				unigramCounts[word1] = 1 + unigramCounts[word1]
     			#pass
 			elif i+1 < len(title):
 				word2 = title[i+1]
 				if second_word_test(word1, word2):
 					counts = bigramNegative[(word1, word2)]
-					counts[1] += 1
-					bigramNegative[(word1, word2)] = counts
+    				counts[1] += 1
+    				bigramNegative[(word1, word2)] = counts
     				
-					counts = unigramNegative[word1]
-					counts[1] += 1
-					unigramNegative[word1] = counts
-					
-					bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
-					unigramCounts[word1] = 1 + unigramCounts[word1]
+    				counts = unigramNegative[word1]
+    				counts[1] += 1
+    				unigramNegative[word1] = counts
+    				
+    				bigramCounts[(word1, word2)] = 1 + bigramCounts[(word1, word2)]
+    				unigramCounts[word1] = 1 + unigramCounts[word1]
     			#pass
 			else:
-				counts = unigramNegative[word1]
-				counts[1] += 1
-				unigramNegative[word1] = counts
+    			counts = unigramNegative[word1]
+    			counts[1] += 1
+    			unigramNegative[word1] = counts
     			
-				unigramCounts[word1] = 1 + unigramCounts[word1]
+    			unigramCounts[word1] = 1 + unigramCounts[word1]
 
 
 def train_pros_pos(pro):
@@ -331,7 +331,7 @@ def train_classifier(training_set):
         tagged_pros = pos_tag(word_tokenize(pros[0]))
         tagged_cons = pos_tag(word_tokenize(cons[0]))
 		
-	if review.rating > 3:
+		if review.rating > 3:
         	train_title_pos(tagged_title)
         	train_pros_pos(tagged_pros)
         	train_cons_pos(tagged_cons)

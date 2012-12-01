@@ -32,18 +32,18 @@ def main():
 		pros = tokenizer.tokenize(review.pros)
 		cons = tokenizer.tokenize(review.cons)
         
-		#tagged_title = pos_tag(word_tokenize(title[0]))
-		#tagged_pros = pos_tag(word_tokenize(pros[0]))
-		#tagged_cons = pos_tag(word_tokenize(cons[0]))
+		tagged_title = pos_tag(word_tokenize(title[0]))
+		tagged_pros = pos_tag(word_tokenize(pros[0]))
+		tagged_cons = pos_tag(word_tokenize(cons[0]))
         
         #might need to iterate. Check structure of tagged_
 		for t in title:
 			tt = pos_tag(word_tokenize(t))
 			pros_prob, cons_prob = get_probs_title(tt, pros_prob, cons_prob)
-		for p in pros:
+		for p in tagged_pros:
 			tp = pos_tag(word_tokenize(p))
 			pros_prob, cons_prob = get_probs_pros(tp, pros_prob, cons_prob)
-		for c in cons:
+		for c in tagged_cons:
 			tc = pos_tag(word_tokenize(c))
 			pros_prob, cons_prob = get_probs_cons(tc, pros_prob, cons_prob)
         
