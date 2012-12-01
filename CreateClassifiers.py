@@ -19,7 +19,7 @@ unigramPositive = collections.defaultdict(lambda: [1,1,1])
 unigramNegative = collections.defaultdict(lambda: [1,1,1])
 #unigramNeutral = collections.defaultdict(lambda: [1,1,1])
 
-unigramCounts = collections.defaultdict(lambda: 2)
+unigramCounts = collections.defaultdict(lambda: 6)
 bigramCounts = collections.defaultdict(lambda: 0)
 
 
@@ -327,18 +327,30 @@ def train_classifier(training_set):
         pros = tokenizer.tokenize(review.pros)
         cons = tokenizer.tokenize(review.cons)
         
-        tagged_title = pos_tag(word_tokenize(title[0]))
-        tagged_pros = pos_tag(word_tokenize(pros[0]))
-        tagged_cons = pos_tag(word_tokenize(cons[0]))
+        #tagged_title = pos_tag(word_tokenize(title[0]))
+        #tagged_pros = pos_tag(word_tokenize(pros[0]))
+        #tagged_cons = pos_tag(word_tokenize(cons[0]))
 		
 	if review.rating > 3:
-        	train_title_pos(tagged_title)
-        	train_pros_pos(tagged_pros)
-        	train_cons_pos(tagged_cons)
+        	for t in title:
+			tagged_title = pos_tag(word_tokenize(t))
+			train_title_pos(tagged_title)
+        	for p in pros:
+			tagged_pros = pos_tag(word_tokenize(p))
+			train_pros_pos(tagged_pros)
+		for c in cons:
+			tagged_cons = pos_tag(word_tokenize(c))
+			train_cons_pos(tagged_cons)
         else:
-        	train_title_neg(tagged_title)
-        	train_pros_neg(tagged_pros)
-        	train_cons_neg(tagged_cons)
+        	for t in title:
+                        tagged_title = pos_tag(word_tokenize(t))
+                        train_title_neg(tagged_title)
+                for p in pros:
+                        tagged_pros = pos_tag(word_tokenize(p))
+                        train_pros_neg(tagged_pros)
+                for c in cons:
+                        tagged_cons = pos_tag(word_tokenize(c))
+                        train_cons_neg(tagged_cons)
         
 
 def main():
