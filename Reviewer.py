@@ -48,7 +48,7 @@ def main():
 			pros_prob, cons_prob = get_probs_cons(tc, pros_prob, cons_prob)
         
 		sentiment = guess_sentiment(pros_prob, cons_prob)
-        
+			
 		if sentiment == "Positive" and review.rating > 3:
 			correct +=1
 		elif sentiment == "Negative" and review.rating < 3:

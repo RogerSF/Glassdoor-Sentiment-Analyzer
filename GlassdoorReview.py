@@ -17,12 +17,12 @@ class GlassdoorReview:
     @staticmethod
     def get_training_set():
         """Returns the training set for this project."""
-        return GlassdoorReview.get_review_list(1, 895)
+        return GlassdoorReview.get_review_list(1, 2800)
 
     @staticmethod
     def get_test_set():
         """Returns the test set for the NLP project."""
-        return GlassdoorReview.get_review_list(1, 200)
+        return GlassdoorReview.get_review_list(2801, 347)
 
     @staticmethod
     def get_review_list(start_id=1, number_of_reviews=1):

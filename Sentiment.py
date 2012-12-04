@@ -183,7 +183,7 @@ def update_probs(pos_num, neg_num, denom, pros_p, cons_p, word1):
 	return pros_p, cons_p
         
 def guess_sentiment(pros_prob, cons_prob):
-	if pros_prob > cons_prob:
+	if pros_prob > cons_prob and pros_prob is not 0:
 		return "Positive"
 	else:
 		return "Negative"
